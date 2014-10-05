@@ -21,8 +21,8 @@ var lottery = function () {
     console.log("Error. Usage: node " + process.argv[1] + " (5 white balls) power_ball");
     return -1;
   }
-  favorite = process.argv[2] === '-favorite' ? 1 : 0;
-  powerBall = Number(process.argv[7]);
+  favorite = process.argv[2] === '-favorite' ? 1 : 0; // This should be a 0 or 1.
+  powerBall = Number(process.argv[7]);  // The power ball is always the last one given
   whiteBalls = [];
   for(index = 0; index < 5; index++){
     whiteBalls[index] = parseInt(process.argv[3+index]);
@@ -30,6 +30,8 @@ var lottery = function () {
 
   result = calculateResult(whiteBalls, powerBall);
 
+  // calculate result can return -1 if the ball numbers
+  // are out of range
   if(result < 0) {
     console.log('Invalid arguments.');
     return -1;
