@@ -24,6 +24,11 @@ var lottery = function () {
   }
   result = calculateResult(whiteBalls, powerBall);
 
+  if(result < 0) {
+    console.log('Invalid arguments.');
+    return -1;
+  }
+
   if(powerBall === luckyNumber){
     result = result * 2;
   }
