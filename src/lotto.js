@@ -19,7 +19,7 @@ var lottery = function () {
     console.log("Error. Usage: node " + process.argv[1] + " (5 white balls) power_ball");
     return -1;
   }
-  favorite = process.argv[2] === '-favorite' ? 1 : 0; // This should be a 0 or 1.
+  favorite = process.argv[2] === '-favorite'; // This should be a boolean.
   powerBall = Number(process.argv[7]);  // The power ball is always the last one given
   whiteBalls = [];
   for(index = 0; index < 5; index++){
