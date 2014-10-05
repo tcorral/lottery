@@ -22,6 +22,11 @@ var lottery = function () {
     whiteBalls[index] = parseInt(process.argv[2+index]);
   }
   result = calculateResult(whiteBalls, powerBall);
+
+  if(powerBall === 7){
+    result = result * 2;
+  }
+
   console.log( result + ' percent chance of winning.');
   return 0;
 };
