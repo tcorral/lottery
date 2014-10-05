@@ -3,6 +3,7 @@ var MAX_WHITE_BALL = 59;
 var MAX_POWER_BALL = 39;
 var calculateResult = function (whiteBalls, powerBall) {
   var index;
+  // lottery ball numbers are always shown sorted
   whiteBalls.sort();
   for(index = 0; index < 5; index++){
     if((whiteBalls[index] < 1) || (whiteBalls[index] > MAX_WHITE_BALL)) {
