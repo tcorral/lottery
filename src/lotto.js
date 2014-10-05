@@ -18,10 +18,11 @@ var calculateResult = function (whiteBalls, powerBall) {
 var lottery = function () {
   var powerBall, whiteBalls, index, result, favourite;
   if(process.argv.length !== 9){
-    console.log("Error. Usage: node " + process.argv[1] + " (5 white balls) power_ball");
+    console.log("Error. Usage: node " + process.argv[1] + " -favourite (5 white balls) power_ball");
     return -1;
   }
-  favourite = process.argv[2] === '-favourite' ? 1 : 0; // This should be a 0 or 1.
+
+  favourite = process.argv[2] === '-favourite' // This should be a boolean.
   powerBall = Number(process.argv[7]);  // The power ball is always the last one given
   whiteBalls = [];
   for(index = 0; index < 5; index++){
