@@ -16,12 +16,12 @@ var calculateResult = function (whiteBalls, powerBall) {
   return 0;
 };
 var lottery = function () {
-  var powerBall, whiteBalls, index, result, favorite;
+  var powerBall, whiteBalls, index, result, favourite;
   if(process.argv.length !== 9){
     console.log("Error. Usage: node " + process.argv[1] + " (5 white balls) power_ball");
     return -1;
   }
-  favorite = process.argv[2] === '-favorite' ? 1 : 0; // This should be a 0 or 1.
+  favourite = process.argv[2] === '-favourite' ? 1 : 0; // This should be a 0 or 1.
   powerBall = Number(process.argv[7]);  // The power ball is always the last one given
   whiteBalls = [];
   for(index = 0; index < 5; index++){
@@ -41,7 +41,7 @@ var lottery = function () {
     result = result * 2;
   }
 
-  if(favorite) {
+  if(favourite) {
     result = result * 2;
   }
   console.log( result + ' percent chance of winning.');
