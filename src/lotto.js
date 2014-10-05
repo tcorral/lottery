@@ -3,6 +3,7 @@ var MAX_WHITE_BALL = 59;
 var MAX_POWER_BALL = 39;
 var calculateResult = function (whiteBalls, powerBall) {
   var index;
+  whiteBalls.sort();
   for(index = 0; index < 5; index++){
     if((whiteBalls[index] < 1) || (whiteBalls[index] > MAX_WHITE_BALL)) {
       return -1;
@@ -24,6 +25,7 @@ var lottery = function () {
   for(index = 0; index < 5; index++){
     whiteBalls[index] = parseInt(process.argv[2+index]);
   }
+
   result = calculateResult(whiteBalls, powerBall);
 
   if(result < 0) {
