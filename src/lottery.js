@@ -1,16 +1,18 @@
+var LUCKY_NUMBER = 7;
+var MAX_WHITE_BALL = 59;
+var MAX_POWER_BALL = 39;
 var calculateResult = function (whiteBalls, powerBall) {
   var index;
   for(index = 0; index < 5; index++){
-    if((whiteBalls[index] < 1) || (whiteBalls[index] > 59)) {
+    if((whiteBalls[index] < 1) || (whiteBalls[index] > MAX_WHITE_BALL)) {
       return -1;
     }
   }
-  if((powerBall < 1) || (powerBall > 39)) {
+  if((powerBall < 1) || (powerBall > MAX_POWER_BALL)) {
     return -1;
   }
   return 0;
 };
-var luckyNumber = 7;
 var lottery = function () {
   var powerBall, whiteBalls, index, result;
   if(process.argv.length !== 8){
@@ -29,7 +31,7 @@ var lottery = function () {
     return -1;
   }
 
-  if(powerBall === luckyNumber){
+  if(powerBall === LUCKY_NUMBER){
     result = result * 2;
   }
 
