@@ -15,15 +15,16 @@ var calculateResult = function (whiteBalls, powerBall) {
   return 0;
 };
 var lottery = function () {
-  var powerBall, whiteBalls, index, result;
-  if(process.argv.length !== 8){
+  var powerBall, whiteBalls, index, result, favorite;
+  if(process.argv.length !== 9){
     console.log("Error. Usage: node " + process.argv[1] + " (5 white balls) power_ball");
     return -1;
   }
-  powerBall = parseInt(process.argv[7], 10);
+  favorite = process.argv[2] === '-favorite' ? 1 : 0;
+  powerBall = Number(process.argv[7]);
   whiteBalls = [];
   for(index = 0; index < 5; index++){
-    whiteBalls[index] = parseInt(process.argv[2+index]);
+    whiteBalls[index] = parseInt(process.argv[3+index]);
   }
 
   result = calculateResult(whiteBalls, powerBall);
@@ -37,6 +38,9 @@ var lottery = function () {
     result = result * 2;
   }
 
+  if(favorite) {
+    result = result * 2;
+  }
   console.log( result + ' percent chance of winning.');
   return 0;
 };
