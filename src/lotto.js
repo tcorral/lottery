@@ -19,7 +19,7 @@ var lottery = function () {
     console.log("Error. Usage: node " + process.argv[1] + " (5 white balls) power_ball");
     return -1;
   }
-  powerBall = parseInt(process.argv[7], 10);
+  powerBall = Number(process.argv[7]);
   whiteBalls = [];
   for(index = 0; index < 5; index++){
     whiteBalls[index] = parseInt(process.argv[2+index]);
